@@ -2,8 +2,8 @@
 
 const analytics = {
 
-  calculateBMI(height, weight) {
-    return (weight / (height * height)).toFixed(2);
+  calculateBMI(user) {
+    return (user.weight / (user.height * user.height)).toFixed(2);
   },
 
   determineBMICategory(bmiValue) {
@@ -30,12 +30,12 @@ const analytics = {
     return BMI;
   },
 
-  isIdealBodyWeight(height, weight, gender) {
+  isIdealBodyWeight(user) {
     let idealBodyWeight;
-    let heightInches = this.convertHeightMetresToInches(height);
+    let heightInches = this.convertHeightMetresToInches(user.height);
 
     if (heightInches <= 60) {
-      if (gender === 'Male') {
+      if (user.gender === 'Male') {
         idealBodyWeight = 50;
       } else {
         idealBodyWeight = 45.5;
@@ -43,14 +43,14 @@ const analytics = {
     }
 
     if (heightInches > 60) {
-      if (gender === 'Male') {
+      if (user.gender === 'Male') {
         idealBodyWeight = 50 + (2.3 * (heightInches - 60));
       } else {
         idealBodyWeight = 45.5 + (2.3 * (heightInches - 60));
       }
     }
 
-    if ((weight >= (idealBodyWeight - 2)) && (weight <= (idealBodyWeight + 2))) {
+    if ((user.weight >= (idealBodyWeight - 2)) && (user.weight <= (idealBodyWeight + 2))) {
       return 'green';
     } else {
       return 'red';
