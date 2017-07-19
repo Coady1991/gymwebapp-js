@@ -1,5 +1,4 @@
 # gymwebapp-js
-___
 
 College Assignment, Summer Project
 
