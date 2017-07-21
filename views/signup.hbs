@@ -1,32 +1,52 @@
 {{> welcomemenu id="signup"}}
 
-<form class="ui stacked segment form" action="/register" method="POST">
-    <h3 class="ui header">Register</h3>
-    <div class="two fields">
-        <div class="field">
-            <label>First Name</label>
-            <input placeholder="First Name" type="text"  name="firstName">
-        </div>
-        <div class="field">
-            <label>Last Name</label>
-            <input placeholder="Last Name" type="text"  name="lastName">
-        </div>
+<div class="ui two column grid basic middle aligned segment">
+    <div class="column">
+        <form class="ui stacked segment form" action="/register" method="POST">
+            <h3 class="ui header">Register</h3>
+            <div class="three fields">
+                <div class="field">
+                    <label>First Name</label>
+                    <input placeholder="Full Name" type="text" name="firstName" required>
+                </div>
+                <div class="field">
+                    <label>Surname</label>
+                    <input placeholder="Full Name" type="text" name="lastName" required>
+                </div>
+                <div class="field">
+                    <label>Gender</label>
+                    <div class="field">
+                        <input type="radio" name="gender" value="Male" checked>Male<br>
+                        <input type="radio" name="gender" value="Female">Female<br>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label>Email</label>
+                <input placeholder="Email" type="email" name="email" required>
+            </div>
+            <div class="field">
+                <label>Password</label>
+                <input placeholder="Password" type="password" name="password" required>
+            </div>
+            <div class="field">
+                <label>Address</label>
+                <input placeholder="Address" type="text" name="address" required>
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <label>Height (M)</label>
+                    <input placeholder="0.00m" type="number" min="1.00" max="3.00" step="0.01" name="height" required>
+                </div>
+                <div class="field">
+                    <label>Weight (Kg)</label>
+                    <input placeholder="00.00kg" type="number" min="35" max="250" step="0.01" name="weight" required>
+                </div>
+            </div>
+            <button class="ui blue submit button">Submit</button>
+        </form>
     </div>
-    <div class="field">
-        <label>Email</label>
-        <input placeholder="Email" type="text" name="email">
+    <div class="column">
+        {{! picture here }}
     </div>
-    <div class="field">
-        <label>Password</label>
-        <input type="password" name="password">
-    </div>
-    <div class="field">
-        <label>Weight</label>
-        <input name="weight">
-    </div>
-    <div class="field">
-        <label>Height</label>
-        <input name="height">
-    </div>
-    <button class="ui blue submit button">Submit</button>
-</form>
+</div>
