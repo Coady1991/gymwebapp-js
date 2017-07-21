@@ -6,24 +6,24 @@ const analytics = {
     return (user.weight / (user.height * user.height)).toFixed(2);
   },
 
-  determineBMICategory(bmiValue) {
+  determineBMICategory(calculateBMI) {
     let BMI;
 
-    if (bmiValue < 15) {
+    if (calculateBMI < 15) {
       BMI = 'VERY SEVERELY UNDERWEIGHT';
-    } else if ((bmiValue >= 15) && (bmiValue < 16)) {
+    } else if ((calculateBMI >= 15) && (calculateBMI < 16)) {
       BMI = 'SEVERELY UNDERWEIGHT';
-    } else if ((bmiValue >= 16) && (bmiValue < 18.5)) {
+    } else if ((calculateBMI >= 16) && (calculateBMI < 18.5)) {
       BMI = 'UNDERWEIGHT';
-    } else if ((bmiValue >= 18.5) && (bmiValue < 25)) {
+    } else if ((calculateBMI >= 18.5) && (calculateBMI < 25)) {
       BMI = 'NORMAL';
-    } else if ((bmiValue >= 25) && (bmiValue < 30)) {
+    } else if ((calculateBMI >= 25) && (calculateBMI < 30)) {
       BMI = 'OVERWEIGHT';
-    } else if ((bmiValue >= 30) && (bmiValue < 35)) {
+    } else if ((calculateBMI >= 30) && (calculateBMI < 35)) {
       BMI = 'MODERATELY OBESE';
-    } else if ((bmiValue >= 35) && (bmiValue < 40)) {
+    } else if ((calculateBMI >= 35) && (calculateBMI < 40)) {
       BMI = 'SEVERELY OBESE';
-    } else if (bmiValue >= 40) {
+    } else if (calculateBMI >= 40) {
       BMI = 'VERY SEVERELY OBESE';
     }
 
