@@ -17,4 +17,6 @@ router.post('/authenticate', accounts.authenticate);
 router.get('/dashboard', dashboard.index);
 router.get('/about', about.index);
 
+router.post('/dashboard/addAssessment', dashboard.addAssessment);
+
 module.exports = router;
