@@ -21,6 +21,18 @@
       "waist": "32",
       "hips": "32",
       "comment": ""
+    },
+    {
+      "id": "04b123c7-fd7c-4f87-aa84-a678bf7b00bd",
+      "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
+      "date": "Fri Jul 28 2017",
+      "weight": "75",
+      "chest": "42",
+      "thigh": "32",
+      "upperArm": "23",
+      "waist": "23",
+      "hips": "23",
+      "comment": ""
     }
   ]
 }

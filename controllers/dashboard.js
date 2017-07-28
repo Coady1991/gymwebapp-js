@@ -4,7 +4,6 @@ const logger = require('../utils/logger');
 const accounts = require('./accounts.js');
 const assessmentStore = require('../models/assessment-store');
 const analytics = require('../utils/analytics');
-//const dateFormat = require('dateformat');
 const uuid = require('uuid');
 
 const dashboard = {
@@ -36,7 +35,7 @@ const dashboard = {
     const newAssessment = {
       id: uuid(),
       userid: loggedInUser.id,
-      //date: dateformat(new Date(), 'dd-mm-yy'), //https://stackoverflow.com/questions/3552461/how-to-format-a-javascript-date
+      date: new Date().toDateString(),
       weight: request.body.weight,
       chest: request.body.chest,
       thigh: request.body.thigh,
