@@ -31,10 +31,17 @@ const assessmentStore = {
     this.store.save();
   },*/
 
-  deleteAssessment(assessment) {
+  deleteAssessment(id) {
+    const assessment = this.getAssessmentList(id);
     this.store.remove(this.collection, assessment);
     this.store.save();
   },
+
+  /*removeAssessment(id, assessmentId) {
+    const user = this.getUserById(id);
+    _.remove(user.assessments, { id: assessmentId });
+    this.store.save();
+  },*/
 };
 
 module.exports = assessmentStore;

@@ -18,5 +18,6 @@ router.get('/dashboard', dashboard.index);
 router.get('/about', about.index);
 
 router.post('/dashboard/addAssessment', dashboard.addAssessment);
+router.get('/dashboard/deleteAssessment/:id', dashboard.deleteAssessment);
 
 module.exports = router;
