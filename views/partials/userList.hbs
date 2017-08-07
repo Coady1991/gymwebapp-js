@@ -1,0 +1,23 @@
+<header class="ui header">
+    Trainer {{{trainer.firstName}}} {{{trainer.lastName}}}
+</header>
+
+<table class="ui single line table">
+    <tbody>
+    <div class="ui relaxed divided list">
+        {{#each userList}}
+            <tr>
+                <td>
+                    <div class="item">
+                        <div class="content">
+                            <i class="user icon"></i><a href="/trainerdashboard/viewUser">{{{firstName}}} {{{lastName}}}</a>
+                            <a href="/trainerdashboard/deleteuser/{{id}}"><i class="large red trash icon"></i></a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        {{/each}}
+    </div>
+    </tbody>
+</table>
+</section>
