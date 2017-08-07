@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 const dashboard = require('./controllers/dashboard.js');
+const trainerDashboard = require('./controllers/trainerDashboard.js');
 const about = require('./controllers/about.js');
 const accounts = require('./controllers/accounts.js');
 
@@ -16,6 +17,8 @@ router.post('/authenticate', accounts.authenticate);
 
 router.get('/dashboard', dashboard.index);
 router.get('/about', about.index);
+
+router.get('/trainerDashboard', trainerDashboard.index);
 
 router.post('/dashboard/addAssessment', dashboard.addAssessment);
 router.get('/dashboard/deleteAssessment/:id', dashboard.deleteAssessment);

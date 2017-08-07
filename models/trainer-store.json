@@ -1,8 +1,8 @@
 {
   "trainers": [
     {
-      "firstName": "bart",
-      "lastName": "simpson",
+      "firstName": "Bart",
+      "lastName": "Simpson",
       "email": "bart@simpson.com",
       "password": "secret",
       "id": "3ad52697-6d98-4d80-8273-084de55a86c1",
