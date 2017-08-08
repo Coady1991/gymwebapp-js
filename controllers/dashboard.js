@@ -10,9 +10,18 @@ const dashboard = {
   index(request, response) {
     logger.info('dashboard rendering');
     const loggedInUser = accounts.getCurrentUser(request);
-    const BMI = analytics.calculateBMI(loggedInUser);
-    const BMICategory = analytics.determineBMICategory(BMI);
-    const idealBodyWeight = analytics.isIdealBodyWeight(loggedInUser);
+    let BMI;
+    let BMICategory;
+    let idealBodyWeight;
+    if (loggedInUser.assessments.length == 0) {
+      BMI = analytics.calculateBMI(loggedInUser.weight, loggedInUser.height);
+      BMICategory = analytics.determineBMICategory(BMI);
+      idealBodyWeight = analytics.isIdealBodyWeight(loggedInUser, loggedInUser.height);
+    } else {
+      BMI = analytics.calculateBMI(loggedInUser.assessments[0].weight, loggedInUser.height);
+      BMICategory = analytics.determineBMICategory(BMI);
+      idealBodyWeight = analytics.isIdealBodyWeight(loggedInUser.assessments[0].weight, loggedInUser.height);
+    }
     const assessments = loggedInUser.assessments;
     const viewData = {
       title: 'Gym App Dashboard',

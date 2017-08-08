@@ -2,8 +2,8 @@
 
 const analytics = {
 
-  calculateBMI(user) {
-    return (user.weight / (user.height * user.height)).toFixed(2);
+  calculateBMI(weight, height) {
+    return (weight / (height * height)).toFixed(2);
   },
 
   determineBMICategory(calculateBMI) {
@@ -30,9 +30,9 @@ const analytics = {
     return BMI;
   },
 
-  isIdealBodyWeight(user) {
+  isIdealBodyWeight(user, height) {
     let idealBodyWeight;
-    let heightInches = this.convertHeightMetresToInches(user.height);
+    let heightInches = this.convertHeightMetresToInches(height);
 
     if (heightInches <= 60) {
       if (user.gender === 'Male') {
