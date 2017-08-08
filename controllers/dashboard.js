@@ -2,7 +2,7 @@
 
 const logger = require('../utils/logger');
 const accounts = require('./accounts.js');
-const assessmentStore = require('../models/assessment-store');
+const userStore = require('../models/user-store');
 const analytics = require('../utils/analytics');
 const uuid = require('uuid');
 
@@ -13,28 +13,31 @@ const dashboard = {
     const BMI = analytics.calculateBMI(loggedInUser);
     const BMICategory = analytics.determineBMICategory(BMI);
     const idealBodyWeight = analytics.isIdealBodyWeight(loggedInUser);
+    const assessments = loggedInUser.assessments;
     const viewData = {
       title: 'Gym App Dashboard',
       user: loggedInUser,
       BMI: BMI,
       BMICategory: BMICategory,
       idealBodyWeight: idealBodyWeight,
-      assessments: assessmentStore.getUserAssessments(loggedInUser.id),
+      assessments: assessments,
     };
     logger.info('about to render');
     response.render('dashboard', viewData);
   },
+
   deleteAssessment(request, response) {
+    const loggedInUser = accounts.getCurrentUser(request);
     const assessmentId = request.params.id;
     logger.debug(`Deleting Assessment ${assessmentId} from Dashboard`);
-    assessmentStore.deleteAssessment(assessmentId);
+    userStore.deleteAssessment(loggedInUser.id, assessmentId);
     response.redirect('/dashboard/');
   },
+
   addAssessment(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
     const newAssessment = {
       id: uuid(),
-      userid: loggedInUser.id,
       date: new Date().toDateString(),
       weight: request.body.weight,
       chest: request.body.chest,
@@ -45,7 +48,7 @@ const dashboard = {
       comment: '',
     };
     logger.debug('Creating a new assessment', newAssessment);
-    assessmentStore.addAssessmentList(newAssessment);
+    userStore.addAssessment(loggedInUser.id, newAssessment);
     response.redirect('/dashboard/');
   },
 };

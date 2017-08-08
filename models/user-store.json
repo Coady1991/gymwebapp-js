@@ -7,8 +7,43 @@
       "password": "secret",
       "id": "3ad52697-6d98-4d80-8273-084de55a86c0",
       "weight": 75,
-      "height": 1.80,
-      "gender": "Male"
+      "height": 1.8,
+      "gender": "Male",
+      "assessments": [
+        {
+          "id": "2a9970be-28a0-4460-b989-2223630c4b40",
+          "date": "Tue Aug 08 2017",
+          "weight": "80",
+          "chest": "24",
+          "thigh": "24",
+          "upperArm": "24",
+          "waist": "24",
+          "hips": "24",
+          "comment": ""
+        },
+        {
+          "id": "8c0acc80-0572-4cd8-9183-c5e8bcddbbdc",
+          "date": "Tue Aug 08 2017",
+          "weight": "78",
+          "chest": "27",
+          "thigh": "27",
+          "upperArm": "27",
+          "waist": "27",
+          "hips": "27",
+          "comment": ""
+        },
+        {
+          "id": "1462a59a-f6b2-4bb8-a02e-d5b054c9637f",
+          "date": "Sat Jul 29 2017",
+          "weight": "75",
+          "chest": "32",
+          "thigh": "23",
+          "upperArm": "23",
+          "waist": "23",
+          "hips": "23",
+          "comment": ""
+        }
+      ]
     },
     {
       "firstName": "marge",

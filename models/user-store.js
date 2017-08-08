@@ -24,6 +24,19 @@ const userStore = {
   getUserByEmail(email) {
     return this.store.findOneBy(this.collection, { email: email });
   },
+
+  addAssessment(userId, assessment) {
+    const user = this.getUserById(userId);
+    user.assessments.unshift(assessment);
+    this.store.save();
+  },
+
+  deleteAssessment(userId, assessmentId) {
+    const user = this.getUserById(userId);
+    console.log(user);
+    _.remove(user.assessments, { id: assessmentId });
+    this.store.save();
+  },
 };
 
 module.exports = userStore;
