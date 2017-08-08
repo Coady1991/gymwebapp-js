@@ -36,6 +36,7 @@ const accounts = {
   register(request, response) {
     const user = request.body;
     user.id = uuid();
+    user.assessments = [];
     userstore.addUser(user);
     logger.info(`registering ${user.email}`);
     response.redirect('/');
