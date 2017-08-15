@@ -19,6 +19,35 @@ const trainerDashboard = {
     logger.info('about to render');
     response.render('trainerDashboard', viewData);
   },
+
+  trainerView(request, response) {
+    const loggedInTrainer = accounts.getCurrentTrainer(request);
+    const userId = request.params.id;
+    const user = userstore.getUserById(userId);
+    let BMI;
+    let BMICategory;
+    let idealBodyWeight;
+    if (user.assessments.length == 0) {
+      BMI = analytics.calculateBMI(user.weight, user.height);
+      BMICategory = analytics.determineBMICategory(BMI);
+      idealBodyWeight = analytics.isIdealBodyWeight(user, user.height);
+    } else {
+      BMI = analytics.calculateBMI(user.assessments[0].weight, user.height);
+      BMICategory = analytics.determineBMICategory(BMI);
+      idealBodyWeight = analytics.isIdealBodyWeight(user.assessments[0].weight, user.height);
+    }
+    const assessments = userstore.getUserAssessments(user);
+    const viewData = {
+      title: 'Trainer View',
+      trainer: loggedInTrainer,
+      user: user,
+      BMI: BMI,
+      BMICategory: BMICategory,
+      idealBodyWeight: idealBodyWeight,
+      assessment: assessments,
+    };
+    response.render('trainerView', viewData);
+  },
 };
 
 module.exports = trainerDashboard;

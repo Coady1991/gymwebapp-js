@@ -25,6 +25,10 @@ const userStore = {
     return this.store.findOneBy(this.collection, { email: email });
   },
 
+  getUserAssessments(userId) {
+    return this.store.findBy(this.collection, { userId: userId });
+  },
+
   addAssessment(userId, assessment) {
     const user = this.getUserById(userId);
     user.assessments.unshift(assessment);
