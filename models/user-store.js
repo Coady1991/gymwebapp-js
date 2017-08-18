@@ -29,6 +29,12 @@ const userStore = {
     return this.store.findBy(this.collection, { userId: userId });
   },
 
+  deleteUser(id) {
+    const user = this.getUserById(id);
+    this.store.remove(this.collection, user);
+    this.store.save();
+  },
+
   addAssessment(userId, assessment) {
     const user = this.getUserById(userId);
     user.assessments.unshift(assessment);

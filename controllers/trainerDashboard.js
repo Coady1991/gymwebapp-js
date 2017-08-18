@@ -48,6 +48,12 @@ const trainerDashboard = {
     };
     response.render('trainerView', viewData);
   },
+
+  deleteUser(request, response) {
+    const userId = request.params.id;
+    userstore.deleteUser(userId);
+    response.redirect('/trainerDashboard');
+  },
 };
 
 module.exports = trainerDashboard;

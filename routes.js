@@ -31,6 +31,7 @@ router.post('/updateProfile/setWeight', updateProfile.setWeight);
 
 router.get('/trainerDashboard', trainerDashboard.index);
 router.get('/trainerDashboard/trainerView/:id', trainerDashboard.trainerView);
+router.get('/trainerDashboard/deleteUser/:id', trainerDashboard.deleteUser);
 
 router.post('/dashboard/addAssessment', dashboard.addAssessment);
 router.get('/dashboard/deleteAssessment/:id', dashboard.deleteAssessment);
