@@ -12,6 +12,17 @@
       "gender": "Male",
       "assessments": [
         {
+          "id": "6e2335bb-82e5-440b-8350-b5fd9153b097",
+          "date": "Tue Aug 15 2017",
+          "weight": "77",
+          "chest": "27",
+          "thigh": "27",
+          "upperArm": "27",
+          "waist": "27",
+          "hips": "27",
+          "comment": ""
+        },
+        {
           "id": "2a9970be-28a0-4460-b989-2223630c4b40",
           "date": "Tue Aug 08 2017",
           "weight": "80",
