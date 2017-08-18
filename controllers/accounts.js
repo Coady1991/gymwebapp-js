@@ -46,8 +46,8 @@ const accounts = {
     const user = userstore.getUserByEmail(request.body.email);
     const trainer = trainerstore.getTrainerByEmail(request.body.email);
     if (user && user.password === request.body.password) {
-      response.cookie('user', user.email);
-      logger.info(`logging in ${user.email}`);
+      response.cookie('user', user.id);
+      logger.info(`logging in ${user.id}`);
       response.redirect('/dashboard');
     } else if (trainer && trainer.password === request.body.password) {
       response.cookie('trainer', trainer.email);
@@ -60,8 +60,8 @@ const accounts = {
   },
 
   getCurrentUser(request) {
-    const userEmail = request.cookies.user;
-    return userstore.getUserByEmail(userEmail);
+    const userId = request.cookies.user;
+    return userstore.getUserById(userId);
   },
 
   getCurrentTrainer(request) {

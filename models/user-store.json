@@ -1,8 +1,8 @@
 {
   "users": [
     {
-      "firstName": "homer",
-      "lastName": "simpson",
+      "firstName": "Homer",
+      "lastName": "Simpson",
       "email": "homer@simpson.com",
       "password": "secret",
       "address": "Springfield",
