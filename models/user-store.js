@@ -29,6 +29,15 @@ const userStore = {
     return this.store.findBy(this.collection, { userId: userId });
   },
 
+  getAssessment(userId, assessmentId) {
+    const user = this.getUserById(userId);
+    for (let i = 0; i < user.assessments.length; i++) {
+      if (user.assessments[i].assessmentid === assessmentId) {
+        return user.assessments[i];
+      }
+    }
+  },
+
   deleteUser(id) {
     const user = this.getUserById(id);
     this.store.remove(this.collection, user);
@@ -44,7 +53,7 @@ const userStore = {
   deleteAssessment(userId, assessmentId) {
     const user = this.getUserById(userId);
     console.log(user);
-    _.remove(user.assessments, { id: assessmentId });
+    _.remove(user.assessments, { assessmentid: assessmentId });
     this.store.save();
   },
 };

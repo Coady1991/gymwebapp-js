@@ -40,6 +40,7 @@ const trainerDashboard = {
     const viewData = {
       title: 'Trainer View',
       trainer: loggedInTrainer,
+      id: userId,
       user: user,
       BMI: BMI,
       BMICategory: BMICategory,
@@ -53,6 +54,16 @@ const trainerDashboard = {
     const userId = request.params.id;
     userstore.deleteUser(userId);
     response.redirect('/trainerDashboard');
+  },
+
+  addComment(request, response) {
+    const userId = request.params.id;
+    const assessmentId = request.params.assessmentid;
+    const comment = request.body.comment;
+    const updateAssessment = userstore.getAssessment(userId, assessmentId);
+    updateAssessment.comment = comment;
+    userstore.store.save();
+    response.redirect('/trainerDashboard/trainerView/' + userId);
   },
 };
 

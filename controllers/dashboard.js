@@ -37,7 +37,7 @@ const dashboard = {
 
   deleteAssessment(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
-    const assessmentId = request.params.id;
+    const assessmentId = request.params.assessmentid;
     logger.debug(`Deleting Assessment ${assessmentId} from Dashboard`);
     userStore.deleteAssessment(loggedInUser.id, assessmentId);
     response.redirect('/dashboard/');
@@ -46,7 +46,7 @@ const dashboard = {
   addAssessment(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
     const newAssessment = {
-      id: uuid(),
+      assessmentid: uuid(),
       date: new Date().toDateString(),
       weight: request.body.weight,
       chest: request.body.chest,
