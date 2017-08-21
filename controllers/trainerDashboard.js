@@ -114,6 +114,13 @@ const trainerDashboard = {
     classStore.addClass(newClass);
     response.redirect('/trainerDashboard/classView');
   },
+
+  deleteClass(request, response) {
+    const classId = request.params.classId;
+    logger.debug('deleting ${classId}');
+    classStore.deleteClass(classId);
+    response.redirect('/trainerDashboard/classView');
+  },
 };
 
 module.exports = trainerDashboard;
