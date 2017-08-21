@@ -3,6 +3,7 @@
 const logger = require('../utils/logger');
 const accounts = require('./accounts.js');
 const userstore = require('../models/user-store');
+const classStore = require('../models/class-store');
 const analytics = require('../utils/analytics');
 const uuid = require('uuid');
 
@@ -48,6 +49,19 @@ const trainerDashboard = {
       assessment: assessments,
     };
     response.render('trainerView', viewData);
+  },
+
+  classView(request, response) {
+    logger.info('class view rendering');
+    const trainer = accounts.getCurrentTrainer(request);
+    const classes = classStore.getAllClasses();
+    const viewData = {
+      title: 'Trainer Classes',
+      trainer: trainer,
+      classes: classes,
+    };
+    logger.info('about to render classes');
+    response.render('classView', viewData);
   },
 
   deleteUser(request, response) {
