@@ -79,6 +79,41 @@ const trainerDashboard = {
     userstore.store.save();
     response.redirect('/trainerDashboard/trainerView/' + userId);
   },
+
+  addClass(request, response) {
+    logger.info('adding a new class');
+    const loggedInTrainer = accounts.getCurrentTrainer(request);
+    const newClass = {
+      classId: uuid(),
+      trainerid: loggedInTrainer.id,
+      className: request.body.className,
+      noOfClass: request.body.noOfClass,
+      duration: request.body.duration,
+      difficulty: request.body.difficulty,
+      capacity: request.body.capacity,
+      time: request.body.time,
+      date: request.body.date,
+      class: [],
+    };
+    for (let i = 0; i < request.body.noOfClass; i++) {
+      const date = new Date(request.body.date);
+      const nextDate = (i * 7);
+      const classDate = new Date(date.setTime(date.getTime() + (nextDate * 86400000))); // https://stackoverflow.com/questions/6963311/add-days-to-a-date-object
+      const exClass = {
+        exClassid: uuid(),
+        duration: request.body.duration,
+        currentCapacity: 0,
+        capacity: request.body.capacity,
+        classDate: classDate.toDateString(),
+        time: request.body.time,
+        members: [],
+      };
+      newClass.class.push(exClass);
+    }
+    logger.debug('adding new classess');
+    classStore.addClass(newClass);
+    response.redirect('/trainerDashboard/classView');
+  },
 };
 
 module.exports = trainerDashboard;

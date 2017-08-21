@@ -35,6 +35,7 @@ router.get('/trainerDashboard/deleteUser/:id', trainerDashboard.deleteUser);
 router.post('/trainerDashboard/:id/addComment/:assessmentid', trainerDashboard.addComment);
 
 router.get('/trainerDashboard/classView', trainerDashboard.classView);
+router.post('/trainerDashboard/addClass', trainerDashboard.addClass);
 
 router.post('/dashboard/addAssessment', dashboard.addAssessment);
 router.get('/dashboard/deleteAssessment/:assessmentid', dashboard.deleteAssessment);
