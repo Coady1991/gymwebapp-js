@@ -1,3 +1,44 @@
 {
-  "classes": []
+  "classes": [
+    {
+      "classId": "5013859b-2ea8-483c-a9cf-366dc0f4eeeb",
+      "trainerid": "3ad52697-6d98-4d80-8273-084de55a86c1",
+      "className": "HIIT",
+      "noOfClass": "3",
+      "duration": "01:00",
+      "difficulty": "Beginner",
+      "capacity": "8",
+      "time": "12:00",
+      "date": "Wed Aug 23 2017",
+      "class": [
+        {
+          "exClassid": "3579f6c0-8968-4e55-b09b-4db43f5c5d74",
+          "duration": "01:00",
+          "currentCapacity": 0,
+          "capacity": "8",
+          "classDate": "Wed Aug 23 2017",
+          "time": "12:00",
+          "members": []
+        },
+        {
+          "exClassid": "0b0b6288-3f03-4ce7-b8c9-dc401c7bb01d",
+          "duration": "01:00",
+          "currentCapacity": 0,
+          "capacity": "8",
+          "classDate": "Wed Aug 30 2017",
+          "time": "12:00",
+          "members": []
+        },
+        {
+          "exClassid": "605249c8-13a4-44d2-ad94-8a391b74bc0d",
+          "duration": "01:00",
+          "currentCapacity": 0,
+          "capacity": "8",
+          "classDate": "Wed Sep 06 2017",
+          "time": "12:00",
+          "members": []
+        }
+      ]
+    }
+  ]
 }

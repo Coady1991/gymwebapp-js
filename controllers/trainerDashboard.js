@@ -92,7 +92,7 @@ const trainerDashboard = {
       difficulty: request.body.difficulty,
       capacity: request.body.capacity,
       time: request.body.time,
-      date: request.body.date,
+      date: new Date().toDateString(),
       class: [],
     };
     for (let i = 0; i < request.body.noOfClass; i++) {

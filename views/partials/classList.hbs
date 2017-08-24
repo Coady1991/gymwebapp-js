@@ -1,31 +1,63 @@
 <h1>Classes</h1>
 <section class="ui raised segment">
-    <table class="ui eight column table">
-        <thead>
-        <tr>
-            <th>Class Name</th>
-            <th>Duration</th>
-            <th>Capacity</th>
-            <th>Difficulty</th>
-            <th>Start Time</th>
-            <th>Date</th>
-            <th></th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        {{#each classes}}
-            <tr>
-                <td> {{className}} </td>
-                <td> {{duration}} </td>
-                <td> {{capacity}} </td>
-                <td> {{difficulty}} </td>
-                <td> {{time}} </td>
-                <td> {{date}} </td>
-                <td> <a href="" class="ui icon button"><i class="edit icon"></i></a></td>
-                <td> <a href="/trainerdashboard/deleteClass" class="ui icon button"><i class="trash icon"></i></a></td>
-            </tr>
-        {{/each}}
-        </tbody>
-    </table>
+    {{#each classes}}
+        <table class="inverted blue ui eight column table">
+            <thead>
+                <tr>
+                    <th>Class Name</th>
+                    <th>Duration</th>
+                    <th>Capacity</th>
+                    <th>Difficulty</th>
+                    <th>Start Time</th>
+                    <th>Date</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> {{className}} </td>
+                    <td> {{duration}} </td>
+                    <td> {{capacity}} </td>
+                    <td> {{difficulty}} </td>
+                    <td> {{time}} </td>
+                    <td> {{date}} </td>
+                    <td> <a href="" class="ui icon button"><i class="edit icon"></i></a></td>
+                    <td> <a href="/trainerdashboard/deleteClass" class="ui icon button"><i class="trash icon"></i></a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <details>
+            <summary> View {{className}} Classes </summary>
+                {{#each class}}
+                    <table class="ui blue seven column table" >
+                        <thead>
+                        <tr>
+                            <th>Duration</th>
+                            <th>Capacity</th>
+                            <th>Current Capacity</th>
+                            <th>Difficulty</th>
+                            <th>Start Time</th>
+                            <th>Date</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td> {{duration}} </td>
+                            <td> {{capacity}} </td>
+                            <td> {{currentCapacity}} </td>
+                            <td> {{difficulty}} </td>
+                            <td> {{time}} </td>
+                            <td> {{classDate}} </td>
+                            <td> <a href="" class="ui icon button"><i class="edit icon"></i></a></td>
+                            <td> <a href="" class="ui icon button"><i class="trash icon"></i></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                {{/each}}
+        </details>
+    {{/each}}
 </section>
