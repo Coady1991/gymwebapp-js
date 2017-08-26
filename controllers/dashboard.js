@@ -3,6 +3,8 @@
 const logger = require('../utils/logger');
 const accounts = require('./accounts.js');
 const userStore = require('../models/user-store');
+const classStore = require('../models/class-store');
+const trainerStore = require('../models/trainer-store');
 const analytics = require('../utils/analytics');
 const uuid = require('uuid');
 
@@ -59,6 +61,18 @@ const dashboard = {
     logger.debug('Creating a new assessment', newAssessment);
     userStore.addAssessment(loggedInUser.id, newAssessment);
     response.redirect('/dashboard/');
+  },
+
+  memberClassView(request, response) {
+    logger.info('memberClassView rendering');
+    const loggedInUser = accounts.getCurrentUser(request);
+    const classList = classStore.getAllClasses();
+    const viewData = {
+      user: loggedInUser,
+      classList: classList,
+    };
+    logger.debug('rendering classes');
+    response.render('memberClassView', viewData);
   },
 };
 

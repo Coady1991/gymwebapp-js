@@ -41,4 +41,6 @@ router.get('/trainerdashboard/deleteClass', trainerDashboard.deleteClass);
 router.post('/dashboard/addAssessment', dashboard.addAssessment);
 router.get('/dashboard/deleteAssessment/:assessmentid', dashboard.deleteAssessment);
 
+router.get('/dashboard/memberClassView', dashboard.memberClassView);
+
 module.exports = router;
