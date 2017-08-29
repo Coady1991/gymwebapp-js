@@ -76,6 +76,13 @@ const classes = {
     classStore.deleteClass(classId);
     response.redirect('/classes/');
   },
+
+  deleteExClass(request, response) {
+    const classId = request.params.classId;
+    const exClassId = request.params.exClassid;
+    classStore.deleteExClass(classId, exClassId);
+    response.redirect('/classes/');
+  },
 };
 
 module.exports = classes;

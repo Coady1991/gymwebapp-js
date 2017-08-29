@@ -26,6 +26,12 @@ const classStore = {
     this.store.remove(this.collection, thisClass);
     this.store.save();
   },
+
+  deleteExClass(classId, exClassId) {
+    const thisClass = this.getClassById(classId);
+    _.remove(thisClass.class, { exClassid: exClassId });
+    this.store.save();
+  },
 };
 
 module.exports = classStore;

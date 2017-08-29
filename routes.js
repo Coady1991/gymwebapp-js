@@ -42,5 +42,6 @@ router.get('/classes', classes.index);
 router.get('/classes/memberClassView', classes.memberClassView);
 router.post('/classes/addClass', classes.addClass);
 router.get('/classes/deleteClass/:classId', classes.deleteClass);
+router.get('/classes/:classId/deleteExClass/:exClassid', classes.deleteExClass);
 
 module.exports = router;
