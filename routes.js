@@ -8,6 +8,7 @@ const trainerDashboard = require('./controllers/trainerDashboard.js');
 const about = require('./controllers/about.js');
 const accounts = require('./controllers/accounts.js');
 const updateProfile = require('./controllers/updateProfile.js');
+const classes = require('./controllers/classes.js');
 
 router.get('/', accounts.index);
 router.get('/login', accounts.login);
@@ -34,13 +35,12 @@ router.get('/trainerDashboard/trainerView/:id', trainerDashboard.trainerView);
 router.get('/trainerDashboard/deleteUser/:id', trainerDashboard.deleteUser);
 router.post('/trainerDashboard/:id/addComment/:assessmentid', trainerDashboard.addComment);
 
-router.get('/trainerDashboard/classView', trainerDashboard.classView);
-router.post('/trainerDashboard/addClass', trainerDashboard.addClass);
-router.get('/trainerdashboard/deleteClass', trainerDashboard.deleteClass);
-
 router.post('/dashboard/addAssessment', dashboard.addAssessment);
 router.get('/dashboard/deleteAssessment/:assessmentid', dashboard.deleteAssessment);
 
-router.get('/dashboard/memberClassView', dashboard.memberClassView);
+router.get('/classes', classes.index);
+router.get('/classes/memberClassView', classes.memberClassView);
+router.post('/classes/addClass', classes.addClass);
+router.get('/classes/deleteClass/:classId', classes.deleteClass);
 
 module.exports = router;

@@ -62,18 +62,6 @@ const dashboard = {
     userStore.addAssessment(loggedInUser.id, newAssessment);
     response.redirect('/dashboard/');
   },
-
-  memberClassView(request, response) {
-    logger.info('memberClassView rendering');
-    const loggedInUser = accounts.getCurrentUser(request);
-    const classList = classStore.getAllClasses();
-    const viewData = {
-      user: loggedInUser,
-      classList: classList,
-    };
-    logger.debug('rendering classes');
-    response.render('memberClassView', viewData);
-  },
 };
 
 module.exports = dashboard;

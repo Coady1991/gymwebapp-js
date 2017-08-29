@@ -18,12 +18,12 @@ const classStore = {
   },
 
   getClassById(classId) {
-    return this.store.findOneBy(this.collection, { classid: classId });
+    return this.store.findOneBy(this.collection, { classId: classId });
   },
 
-  deleteClass(id) {
-    const classes = this.getClassById(id);
-    this.store.remove(this.collection, classes);
+  deleteClass(classId) {
+    const thisClass = this.getClassById(classId);
+    this.store.remove(this.collection, thisClass);
     this.store.save();
   },
 };
