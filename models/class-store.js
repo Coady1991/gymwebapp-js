@@ -21,6 +21,15 @@ const classStore = {
     return this.store.findOneBy(this.collection, { classId: classId });
   },
 
+  getExClassById(classId, exClassId) {
+    const thisClass = this.getClassById(classId);
+    for (let i = 0; i < thisClass.class.length; i++) {
+      if (thisClass.class[i].exClassid === exClassId) {
+        return thisClass.class[i];
+      }
+    }
+  },
+
   deleteClass(classId) {
     const thisClass = this.getClassById(classId);
     this.store.remove(this.collection, thisClass);

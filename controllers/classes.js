@@ -65,6 +65,7 @@ const classes = {
       };
       newClass.class.push(exClass);
     }
+
     logger.debug('adding new classess');
     classStore.addClass(newClass);
     response.redirect('/classes/');
@@ -82,6 +83,28 @@ const classes = {
     const exClassId = request.params.exClassid;
     classStore.deleteExClass(classId, exClassId);
     response.redirect('/classes/');
+  },
+
+  enrollInExClass(request, response) {
+    const classId = request.params.classId;
+    const exClassId = request.params.exClassid;
+    const classSession = classStore.getExClassById(classId, exClassId);
+    const user = accounts.getCurrentUser(request);
+    let enrolled = false;
+    for (let i = 0; i < classSession.members.length; i++) {
+      if (classSession.members[i] === user.id) {
+        enrolled = true;
+      }
+    }
+
+    if ((!enrolled) && (classSession.currentCapacity < classSession.capacity)) {
+      classSession.currentCapacity += 1;
+      classSession.members.push(user.id);
+      classStore.store.save();
+    } else {
+      logger.debug('Unable to enroll');
+    }
+    response.redirect('/classes/memberClassView');
   },
 };
 

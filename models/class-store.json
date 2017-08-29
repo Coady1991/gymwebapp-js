@@ -14,20 +14,24 @@
         {
           "exClassid": "9d513e32-6834-47ca-b6aa-27a8dbf04a41",
           "duration": "11:11",
-          "currentCapacity": 0,
+          "currentCapacity": 1,
           "capacity": "8",
           "classDate": "Thu Sep 07 2017",
           "time": "11:11",
-          "members": []
+          "members": [
+            "3ad52697-6d98-4d80-8273-084de55a86c0"
+          ]
         },
         {
           "exClassid": "254a9e1f-2249-46b9-ae1c-e21795af883f",
           "duration": "11:11",
-          "currentCapacity": 0,
+          "currentCapacity": 1,
           "capacity": "8",
           "classDate": "Thu Sep 14 2017",
           "time": "11:11",
-          "members": []
+          "members": [
+            "3ad52697-6d98-4d80-8273-084de55a86c0"
+          ]
         }
       ]
     }
