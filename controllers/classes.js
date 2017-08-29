@@ -106,6 +106,23 @@ const classes = {
     }
     response.redirect('/classes/memberClassView');
   },
+
+  unenrollInExClass(request, response) {
+    const classId = request.params.classId;
+    const exClassId = request.params.exClassid;
+    const classSession = classStore.getExClassById(classId, exClassId);
+    const user = accounts.getCurrentUser(request);
+    for (let i = 0; i < classSession.members.length; i++) {
+      if (classSession.members[i] === user.id) {
+        classSession.currentCapacity -= 1;
+        classSession.members.splice(user.id, 1); //https://stackoverflow.com/questions/3396088/how-do-i-remove-an-object-from-an-array-with-javascript
+        classStore.store.save();
+      } else {
+        logger.debug('Not enrolled in exClass');
+      }
+      response.redirect('/classes/memberClassView');
+    }
+  },
 };
 
 module.exports = classes;
