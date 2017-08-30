@@ -9,6 +9,7 @@ const about = require('./controllers/about.js');
 const accounts = require('./controllers/accounts.js');
 const updateProfile = require('./controllers/updateProfile.js');
 const classes = require('./controllers/classes.js');
+const bookings = require('./controllers/bookings.js');
 
 router.get('/', accounts.index);
 router.get('/login', accounts.login);
@@ -47,5 +48,8 @@ router.get('/classes/:classId/enrollInExClass/:exClassid', classes.enrollInExCla
 router.get('/classes/:classId/unenrollInExClass/:exClassid', classes.unenrollInExClass);
 router.get('/classes/enrollInAllClasses/:classId', classes.enrollInAllClasses);
 router.get('/classes/unenrollInAllClasses/:classId', classes.unenrollInAllClasses);
+
+router.get('/bookings', bookings.index);
+router.get('/bookings/memberBookings', bookings.memberBookingView);
 
 module.exports = router;
