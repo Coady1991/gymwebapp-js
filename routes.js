@@ -46,5 +46,6 @@ router.get('/classes/:classId/deleteExClass/:exClassid', classes.deleteExClass);
 router.get('/classes/:classId/enrollInExClass/:exClassid', classes.enrollInExClass);
 router.get('/classes/:classId/unenrollInExClass/:exClassid', classes.unenrollInExClass);
 router.get('/classes/enrollInAllClasses/:classId', classes.enrollInAllClasses);
+router.get('/classes/unenrollInAllClasses/:classId', classes.unenrollInAllClasses);
 
 module.exports = router;

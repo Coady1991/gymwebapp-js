@@ -146,6 +146,25 @@ const classes = {
     }
     response.redirect('/classes/memberClassView');
   },
+
+  unenrollInAllClasses(request, response) {
+    const classId = request.params.classId;
+    const classSession = classStore.getClassById(classId);
+    const user = accounts.getCurrentUser(request);
+    for (let i = 0; i < classSession.class.length; i++) {
+      let thisClass = classSession.class[i];
+      for (let j = 0; j < thisClass.members.length; j++) {
+        if (thisClass.members[j] === user.id) {
+          thisClass.currentCapacity -= 1;
+          thisClass.members.splice(user.id, 1);
+          classStore.store.save();
+        } else {
+          logger.debug('Not enrolled in Class');
+        }
+      }
+    }
+    response.redirect('/classes/memberClassView');
+  },
 };
 
 module.exports = classes;
