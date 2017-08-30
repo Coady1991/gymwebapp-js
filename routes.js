@@ -51,5 +51,7 @@ router.get('/classes/unenrollInAllClasses/:classId', classes.unenrollInAllClasse
 
 router.get('/bookings', bookings.index);
 router.get('/bookings/memberBookings', bookings.memberBookingView);
+router.post('/bookings/addTrainerBooking', bookings.addTrainerBooking);
+router.post('/bookings/addMemberBooking', bookings.addMemberBooking);
 
 module.exports = router;

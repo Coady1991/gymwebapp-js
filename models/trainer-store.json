@@ -7,7 +7,49 @@
       "password": "secret",
       "id": "3ad52697-6d98-4d80-8273-084de55a86c1",
       "gender": "Male",
-      "bookings": []
+      "bookings": [
+        {
+          "bookingId": "9adcd65d-aa16-41f3-a3ba-a856fb8c057d",
+          "date": "Thu Aug 31 2017",
+          "time": "12:00"
+        },
+        {
+          "bookingId": "661a2d71-46d4-4e48-bdc8-dc4aed50ae4c",
+          "date": "Thu Aug 31 2017",
+          "time": "13:00"
+        },
+        {
+          "bookingId": "cafafd5f-8aea-48c3-ae0b-6a0e6cdc68a5",
+          "date": "Thu Aug 31 2017",
+          "time": "14:00"
+        },
+        {
+          "bookingId": "b89decb8-a62e-4836-90bf-868c087c5734",
+          "date": "Thu Aug 31 2017",
+          "time": "15:00"
+        },
+        {
+          "bookingId": "974963fc-0904-4a41-b2f6-8c0393679dba",
+          "date": "Thu Aug 31 2017",
+          "time": "16:00"
+        },
+        {
+          "bookingId": "6fc74505-ecbf-44da-822a-f8f10a46bb86",
+          "date": "Thu Aug 31 2017",
+          "time": "17:00"
+        },
+        {
+          "bookingId": "b95afc8f-7215-4c9e-b6ec-6de712aad748",
+          "date": "Thu Aug 31 2017",
+          "time": "18:00"
+        },
+        {
+          "bookingId": "0d6ee96b-ae36-44dd-a113-e33ca0db2cf3",
+          "userId": "3ad52697-6d98-4d80-8273-084de55a86c0",
+          "date": "Thu Aug 31 2017",
+          "time": "19:00"
+        }
+      ]
     }
   ]
 }

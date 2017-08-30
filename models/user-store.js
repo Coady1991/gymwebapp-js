@@ -56,6 +56,12 @@ const userStore = {
     _.remove(user.assessments, { assessmentid: assessmentId });
     this.store.save();
   },
+
+  newBooking(userId, booking) {
+    const user = this.getUserById(userId);
+    user.bookings.push(booking);
+    this.store.save();
+  },
 };
 
 module.exports = userStore;

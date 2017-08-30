@@ -44,6 +44,26 @@
           "hips": "27",
           "comment": ""
         }
+      ],
+      "bookings": [
+        {
+          "bookingId": "173a5b56-b508-4280-a98b-e6cf3ad6cdd9",
+          "trainerId": "3ad52697-6d98-4d80-8273-084de55a86c1",
+          "date": "Thu Aug 31 2017",
+          "time": "09:00"
+        },
+        {
+          "bookingId": "74d256c4-c4a2-4ff8-ac68-687c319245ee",
+          "trainerId": "3ad52697-6d98-4d80-8273-084de55a86c1",
+          "date": "Thu Aug 31 2017",
+          "time": "09:00"
+        },
+        {
+          "bookingId": "a29698ca-d9b0-4ab1-8277-8f908a54935b",
+          "trainerId": "3ad52697-6d98-4d80-8273-084de55a86c1",
+          "date": "Thu Aug 31 2017",
+          "time": "11:00"
+        }
       ]
     }
   ]

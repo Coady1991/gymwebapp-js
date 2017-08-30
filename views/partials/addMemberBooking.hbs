@@ -1,0 +1,23 @@
+<h1>Add Booking</h1>
+<form class="ui raised segment form" action="/bookings/addMemberBooking" method="POST">
+    <div class="three fields">
+        <div class="field">
+            <label>Booking Date</label>
+            <input placeholder="Date" type="date" name="date" required>
+        </div>
+        <div class="field">
+            <label>Time</label>
+            <input placeholder="Time" type="time" name="time" required>
+        </div>
+        <div class="field">
+            <label>Member</label>
+            <select class="ui dropdown" name="trainer" required>
+                <option selected disabled></option>
+                {{#each trainer}}
+                    <option value={{id}}> {{firstName}} {{lastName}} </option>
+                {{/each}}
+            </select>
+        </div>
+    </div>
+    <button class="ui blue submit button">Add Booking</button>
+</form>

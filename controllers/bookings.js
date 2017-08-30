@@ -37,6 +37,38 @@ const bookings = {
     logger.info('about to render memberBookingView');
     response.render('memberBookings', viewData);
   },
+
+  addTrainerBooking(request, response) {
+    console.log(request.body);
+    const trainer = accounts.getCurrentTrainer(request);
+    const userId = request.body.user;
+    const member = userStore.getUserById(userId);
+    const date = new Date(request.body.date);
+    const trainerBooking = {
+      bookingId: uuid(),
+      userId: member.id,
+      date: date.toDateString(),
+      time: request.body.time,
+    };
+    trainerStore.newBooking(trainer.id, trainerBooking);
+    response.redirect('/bookings/');
+  },
+
+  addMemberBooking(request, response) {
+    console.log(request.body);
+    const user = accounts.getCurrentUser(request);
+    const trainerId = request.body.trainer;
+    const trainer = trainerStore.getTrainerById(trainerId);
+    const date = new Date(request.body.date);
+    const memberBooking = {
+      bookingId: uuid(),
+      trainerId: trainer.id,
+      date: date.toDateString(),
+      time: request.body.time,
+    };
+    userStore.newBooking(user.id, memberBooking);
+    response.redirect('/bookings/memberBookings');
+  }
 };
 
 module.exports = bookings;
