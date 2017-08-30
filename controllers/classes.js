@@ -123,6 +123,29 @@ const classes = {
       response.redirect('/classes/memberClassView');
     }
   },
+
+  enrollInAllClasses(request, response) {
+    const classId = request.params.classId;
+    const classSession = classStore.getClassById(classId);
+    const user = accounts.getCurrentUser(request);
+    for (let i = 0; i < classSession.class.length; i++) {
+      let thisClass = classSession.class[i];
+      let enrolled = false;
+      for (let j = 0; j < thisClass.members.length; j++) {
+        if (thisClass.members[j] === user.id) {
+          enrolled = true;
+        }
+      }
+      if ((!enrolled) && (thisClass.currentCapacity < thisClass.capacity)) {
+        thisClass.currentCapacity += 1;
+        thisClass.members.push(user.id);
+        classStore.store.save();
+      } else {
+        logger.debug('Unable to enroll');
+      }
+    }
+    response.redirect('/classes/memberClassView');
+  },
 };
 
 module.exports = classes;
