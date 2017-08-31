@@ -9,16 +9,20 @@
       "gender": "Male",
       "bookings": [
         {
-          "bookingId": "0d6ee96b-ae36-44dd-a113-e33ca0db2cf3",
-          "userId": "3ad52697-6d98-4d80-8273-084de55a86c0",
-          "date": "Thu Aug 31 2017",
-          "time": "17:00"
-        },
-        {
           "bookingId": "a2ce0892-19a3-4f17-b6a0-73ed5b4ad956",
           "userId": "3ad52697-6d98-4d80-8273-084de55a86c0",
           "date": "Thu Aug 31 2017",
-          "time": "10:00"
+          "time": "10:00",
+          "firstName": "Homer",
+          "lastName": "Simpson"
+        },
+        {
+          "bookingId": "2812d94c-e2e4-4e54-bf34-46c0a2262bc4",
+          "userId": "3ad52697-6d98-4d80-8273-084de55a86c0",
+          "date": "Fri Sep 01 2017",
+          "time": "09:00",
+          "firstName": "Homer",
+          "lastName": "Simpson"
         }
       ]
     }

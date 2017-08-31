@@ -62,6 +62,8 @@ const bookings = {
       userId: member.id,
       date: date.toDateString(),
       time: request.body.time,
+      firstName: member.firstName,
+      lastName: member.lastName,
     };
     for (let i = 0; i < memberBookings.length; i++) {
       if (trainerBooking.date === memberBookings[i].date) {
@@ -109,6 +111,8 @@ const bookings = {
       trainerId: trainer.id,
       date: date.toDateString(),
       time: request.body.time,
+      firstName: trainer.firstName,
+      lastName: trainer.lastName,
     };
     for (let i = 0; i < trainerBookings.length; i++) {
       if (memberBooking.date === trainerBookings[i].date) {
