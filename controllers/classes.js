@@ -66,9 +66,34 @@ const classes = {
       newClass.class.push(exClass);
     }
 
-    logger.debug('adding new classess');
+    logger.debug('adding new classes');
     classStore.addClass(newClass);
     response.redirect('/classes/');
+  },
+
+  editClass(request, response) {
+    const classId = request.params.classId;
+    const date = new Date(request.body.date);
+    const newClass = classStore.getClassById(classId);
+    newClass.className = request.body.className;
+    newClass.noOfClass = request.body.noOfClass;
+    newClass.duration = request.body.duration;
+    newClass.difficulty = request.body.difficulty;
+    newClass.capacity = request.body.capacity;
+    newClass.time = request.body.time;
+    newClass.date = date.toDateString();
+    classStore.store.save();
+    response.redirect('/classes');
+  },
+
+  updateClass(request, response) {
+    const classId = request.params.classId;
+    const classToUpdate = classStore.getClassById(classId);
+    const viewData = {
+      classToUpdate: classToUpdate,
+    };
+    logger.debug('updating class view rendering');
+    response.render('trainerClassUpdate', viewData);
   },
 
   deleteClass(request, response) {
@@ -104,6 +129,7 @@ const classes = {
     } else {
       logger.debug('Unable to enroll');
     }
+
     response.redirect('/classes/memberClassView');
   },
 
@@ -120,6 +146,7 @@ const classes = {
       } else {
         logger.debug('Not enrolled in exClass');
       }
+
       response.redirect('/classes/memberClassView');
     }
   },
@@ -136,6 +163,7 @@ const classes = {
           enrolled = true;
         }
       }
+
       if ((!enrolled) && (thisClass.currentCapacity < thisClass.capacity)) {
         thisClass.currentCapacity += 1;
         thisClass.members.push(user.id);
@@ -144,6 +172,7 @@ const classes = {
         logger.debug('Unable to enroll');
       }
     }
+
     response.redirect('/classes/memberClassView');
   },
 
@@ -163,6 +192,7 @@ const classes = {
         }
       }
     }
+
     response.redirect('/classes/memberClassView');
   },
 };

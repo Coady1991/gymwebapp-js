@@ -1,0 +1,44 @@
+<form class="ui raised segment form" action="/classes/editClass/{{classToUpdate.classId}}" method="POST">
+    <div class="four fields">
+        <div class="field">
+            <label>Class Name</label>
+            <input placeholder="Class Name" type="text" name="className" value="{{classToUpdate.className}}" required>
+        </div>
+        <div class="field">
+            <label>Duration</label>
+            <input placeholder="Duration" type="time" name="duration" value="{{classToUpdate.duration}}" required>
+        </div>
+        <div class="field">
+            <label>No. of Classes</label>
+            <input placeholder="No. of Classes" type="number" min="1" max="4" step="1" name="noOfClass" value="{{classToUpdate.noOfClass}}" required>
+        </div>
+        <div class="field">
+            <label>Capacity</label>
+            <input placeholder="Capacity" type="number" min="5" max="20" step="1.00" name="capacity" value="{{classToUpdate.capacity}}" required>
+        </div>
+    </div>
+    <div class="three fields">
+        <div class="field">
+            <label>Difficulty</label>
+            <select class="ui dropdown" name="difficulty" value="{{classToUpdate.difficulty}}" required>
+                <option selected disabled></option>
+                <option value="Beginner"> Beginner</option>
+                <option value="Intermediate"> Intermediate</option>
+                <option value="Advanced"> Advanced</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>Start Time</label>
+            <input placeholder="Start Time" type="time" name="time" value="{{classToUpdate.time}}" required>
+        </div>
+        <div class="field">
+            <label>Date</label>
+            <input placeholder="Date" type="date" name="date" value="{{classToUpdate.date}}" required>
+        </div>
+    </div>
+    <script>
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementsByName("date")[0].setAttribute('min', today);
+    </script>
+    <button class="ui blue submit button">Update Class</button>
+</form>
