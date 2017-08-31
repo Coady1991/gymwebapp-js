@@ -1,5 +1,6 @@
 <h1>Add Booking</h1>
 <form class="ui raised segment form" action="/bookings/addTrainerBooking" method="POST">
+    <p>Bookings with Members can be made every hour from 9:00am until 17:00pm</p>
     <div class="three fields">
         <div class="field">
             <label>Booking Date</label>
@@ -7,7 +8,7 @@
         </div>
         <div class="field">
             <label>Time</label>
-            <input placeholder="Time" type="time" name="time" required>
+            <input placeholder="Time" type="time" name="time" step="3600" min="09:00" max="17:00" required>
         </div>
         <div class="field">
             <label>Member</label>
@@ -19,5 +20,14 @@
             </select>
         </div>
     </div>
+    <div class="entry">
+        {{#if conflict}}
+            <p><i class="large yellow warning sign icon"></i>Booking is unavailable at that time.</p>
+        {{/if}}
+    </div>
+    <script>
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementsByName("date")[0].setAttribute('min', today);
+    </script>
     <button class="ui blue submit button">Add Booking</button>
 </form>

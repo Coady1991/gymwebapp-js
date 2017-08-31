@@ -25,7 +25,6 @@ const bookings = {
     response.render('trainerBookings', viewData);
   },
 
-
   memberBookingView(request, response) {
     logger.info('memberBookingView rendering');
     const loggedInUser = accounts.getCurrentUser(request);
@@ -44,17 +43,49 @@ const bookings = {
   addTrainerBooking(request, response) {
     console.log(request.body);
     const trainer = accounts.getCurrentTrainer(request);
+    const users = userStore.getAllUsers();
+    const assessBookings = trainer.bookings;
+    const viewData = {
+      title: 'Trainer Bookings',
+      trainer: trainer,
+      user: users,
+      assessBookings: assessBookings,
+      conflict: false,
+    };
     const userId = request.body.user;
     const member = userStore.getUserById(userId);
     const date = new Date(request.body.date);
+    const memberBookings = member.bookings;
+    let conflict = false;
     const trainerBooking = {
       bookingId: uuid(),
       userId: member.id,
       date: date.toDateString(),
       time: request.body.time,
     };
-    trainerStore.newBooking(trainer.id, trainerBooking);
-    response.redirect('/bookings/');
+    for (let i = 0; i < memberBookings.length; i++) {
+      if (trainerBooking.date === memberBookings[i].date) {
+        if (trainerBooking.time === memberBookings[i].time) {
+          conflict = true;
+        } else {
+          for (let j = 0; j < assessBookings.length; j++) {
+            if (trainerBooking.date === assessBookings[j].date) {
+              if (trainerBooking.date === assessBookings[j].date) {
+                conflict = true;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    if (!conflict) {
+      trainerStore.newBooking(trainer.id, trainerBooking);
+      response.redirect('/bookings');
+    } else {
+      viewData.conflict = conflict;
+      response.render('trainerBookings', viewData);
+    }
   },
 
   addMemberBooking(request, response) {
@@ -62,7 +93,7 @@ const bookings = {
     const user = accounts.getCurrentUser(request);
     const loggedInUser = accounts.getCurrentUser(request);
     const trainers = trainerStore.getAllTrainers();
-    const memberAssessBooking = userStore.bookings;
+    const memberAssessBooking = user.bookings;
     let viewData = {
       user: loggedInUser,
       trainer: trainers,
@@ -81,20 +112,28 @@ const bookings = {
     };
     for (let i = 0; i < trainerBookings.length; i++) {
       if (memberBooking.date === trainerBookings[i].date) {
-        if (memberBooking.time == trainerBookings[i].time) {
+        if (memberBooking.time === trainerBookings[i].time) {
           conflict = true;
+        } else {
+          for (let j = 0; j < memberAssessBooking.length; j++) {
+            if (memberBooking.date === memberAssessBooking[j].date) {
+              if (memberBooking.date === memberAssessBooking[j].date) {
+                conflict = true;
+              }
+            }
+          }
         }
       }
     }
+
     if (!conflict) {
       userStore.newBooking(user.id, memberBooking);
       response.redirect('/bookings/memberBookings');
-    }
-    else {
+    } else {
       viewData.conflict = conflict;
       response.render('memberBookings', viewData);
     }
-  }
+  },
 };
 
 module.exports = bookings;
