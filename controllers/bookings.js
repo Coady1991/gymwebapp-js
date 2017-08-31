@@ -53,36 +53,30 @@ const bookings = {
       conflict: false,
     };
     const userId = request.body.user;
-    const member = userStore.getUserById(userId);
+    const user = userStore.getUserById(userId);
     const date = new Date(request.body.date);
-    const memberBookings = member.bookings;
+    const memberBookings = user.bookings;
     let conflict = false;
     const trainerBooking = {
       bookingId: uuid(),
-      userId: member.id,
       date: date.toDateString(),
       time: request.body.time,
-      firstName: member.firstName,
-      lastName: member.lastName,
+      firstName: trainer.firstName,
+      lastName: trainer.lastName,
+      mfirstname: user.firstName,
+      mlastName: user.lastName,
     };
     for (let i = 0; i < memberBookings.length; i++) {
       if (trainerBooking.date === memberBookings[i].date) {
         if (trainerBooking.time === memberBookings[i].time) {
           conflict = true;
-        } else {
-          for (let j = 0; j < assessBookings.length; j++) {
-            if (trainerBooking.date === assessBookings[j].date) {
-              if (trainerBooking.date === assessBookings[j].date) {
-                conflict = true;
-              }
-            }
-          }
         }
       }
     }
 
     if (!conflict) {
       trainerStore.newBooking(trainer.id, trainerBooking);
+      userStore.newBooking(user.id, trainerBooking);
       response.redirect('/bookings');
     } else {
       viewData.conflict = conflict;
@@ -108,30 +102,24 @@ const bookings = {
     let conflict = false;
     const memberBooking = {
       bookingId: uuid(),
-      trainerId: trainer.id,
       date: date.toDateString(),
       time: request.body.time,
       firstName: trainer.firstName,
       lastName: trainer.lastName,
+      mfirstName: user.firstName,
+      mlastName: user.lastName,
     };
     for (let i = 0; i < trainerBookings.length; i++) {
       if (memberBooking.date === trainerBookings[i].date) {
         if (memberBooking.time === trainerBookings[i].time) {
           conflict = true;
-        } else {
-          for (let j = 0; j < memberAssessBooking.length; j++) {
-            if (memberBooking.date === memberAssessBooking[j].date) {
-              if (memberBooking.date === memberAssessBooking[j].date) {
-                conflict = true;
-              }
-            }
-          }
         }
       }
     }
 
     if (!conflict) {
       userStore.newBooking(user.id, memberBooking);
+      trainerStore.newBooking(trainer.id, memberBooking);
       response.redirect('/bookings/memberBookings');
     } else {
       viewData.conflict = conflict;

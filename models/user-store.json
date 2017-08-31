@@ -47,22 +47,28 @@
       ],
       "bookings": [
         {
-          "bookingId": "173a5b56-b508-4280-a98b-e6cf3ad6cdd9",
-          "trainerId": "3ad52697-6d98-4d80-8273-084de55a86c1",
-          "date": "Thu Aug 31 2017",
-          "time": "09:00",
-          "firstName": "Bart",
-          "lastName": "Simpson"
-        },
-        {
-          "bookingId": "cd7256ad-9593-4d31-89f9-23e37c35d1f3",
-          "trainerId": "3ad52697-6d98-4d80-8273-084de55a86c1",
-          "date": "Fri Sep 01 2017",
+          "bookingId": "8788d35b-63bd-42f4-a5aa-41cade82f136",
+          "date": "Sun Sep 03 2017",
           "time": "12:00",
           "firstName": "Bart",
-          "lastName": "Simpson"
+          "lastName": "Simpson",
+          "mfirstName": "Homer",
+          "mlastName": "Simpson"
         }
       ]
+    },
+    {
+      "firstName": "Niall",
+      "lastName": "Coady",
+      "gender": "Male",
+      "email": "niall@mail.com",
+      "password": "secret",
+      "address": "Springfield",
+      "height": "1.8",
+      "weight": "90",
+      "id": "9b722522-3b67-4200-9cc4-d3d2d3f57d1f",
+      "assessments": [],
+      "bookings": []
     }
   ]
 }
