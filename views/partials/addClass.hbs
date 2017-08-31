@@ -36,5 +36,9 @@
             <input placeholder="Date" type="date" name="date" required>
         </div>
     </div>
+    <script>
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementsByName("date")[0].setAttribute('min', today);
+    </script>
     <button class="ui blue submit button">Add Class</button>
 </form>
