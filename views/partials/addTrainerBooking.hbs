@@ -1,5 +1,5 @@
 <h1>Add Booking</h1>
-<form class="ui raised segment form" action="/bookings/addTrainerBooking" method="POST">
+<form class="ui raised segment form error" action="/bookings/addTrainerBooking" method="POST">
     <p>Bookings with Members can be made every hour from 9:00am until 17:00pm</p>
     <div class="three fields">
         <div class="field">
@@ -22,9 +22,12 @@
     </div>
     <div class="entry">
         {{#if conflict}}
-            <p><i class="large yellow warning sign icon"></i>Booking is unavailable at that time.</p>
+            <div class="ui error message">
+                <p><i class="large yellow warning sign icon"></i>Booking is unavailable at that time.</p>
+            </div>
         {{/if}}
     </div>
+    <br>
     <script>
         const today = new Date().toISOString().split('T')[0];
         document.getElementsByName("date")[0].setAttribute('min', today);
