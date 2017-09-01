@@ -47,6 +47,12 @@ const trainerStore = {
       }
     }
   },
+
+  deleteBooking(trainerId, bookingId) {
+    const trainer = this.getTrainerById(trainerId);
+    _.remove(trainer.bookings, { bookingId: bookingId });
+    this.store.save();
+  },
 };
 
 module.exports = trainerStore;

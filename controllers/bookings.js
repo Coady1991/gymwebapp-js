@@ -189,6 +189,15 @@ const bookings = {
     trainerStore.store.save();
     response.redirect('/bookings/memberBookings');
   },
+
+  trainerDeleteBooking(request, response) {
+    const trainer = accounts.getCurrentTrainer(request);
+    const bookingId = request.params.bookingId;
+    const userId = request.params.userId;
+    trainerStore.deleteBooking(trainer.id, bookingId);
+    userStore.deleteBooking(userId, bookingId);
+    response.redirect('/bookings');
+  },
 };
 
 module.exports = bookings;

@@ -64,4 +64,6 @@ router.post('/bookings/:userId/trainerEditBooking/:bookingId', bookings.trainerE
 router.get('/bookings/:trainerId/memberUpdateBooking/:bookingId', bookings.memberUpdateBooking);
 router.post('/bookings/:trainerId/memberEditBooking/:bookingId', bookings.memberEditBooking);
 
+router.get('/bookings/:userId/trainerDeleteBooking/:bookingId', bookings.trainerDeleteBooking);
+
 module.exports = router;

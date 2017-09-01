@@ -80,6 +80,12 @@ const userStore = {
       }
     }
   },
+
+  deleteBooking(userId, bookingId) {
+    const user = this.getUserById(userId);
+    _.remove(user.bookings, { bookingId: bookingId });
+    this.store.save();
+  },
 };
 
 module.exports = userStore;
