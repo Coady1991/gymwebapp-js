@@ -71,6 +71,15 @@ const userStore = {
       }
     }
   },
+
+  getBookingByIdHelper(userId, bookingId) {
+    const user = this.getUserById(userId);
+    for (let i = 0; i < user.bookings.length; i++) {
+      if (user.bookings[i].bookingId === bookingId) {
+        return user.bookings[i];
+      }
+    }
+  },
 };
 
 module.exports = userStore;

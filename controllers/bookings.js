@@ -62,9 +62,10 @@ const bookings = {
       date: date.toDateString(),
       time: request.body.time,
       userId: user.id,
+      trainerId: trainer.id,
       firstName: trainer.firstName,
       lastName: trainer.lastName,
-      mfirstname: user.firstName,
+      mfirstName: user.firstName,
       mlastName: user.lastName,
     };
     for (let i = 0; i < memberBookings.length; i++) {
@@ -105,6 +106,8 @@ const bookings = {
       bookingId: uuid(),
       date: date.toDateString(),
       time: request.body.time,
+      userId: user.id,
+      trainerId: trainer.id,
       firstName: trainer.firstName,
       lastName: trainer.lastName,
       mfirstName: user.firstName,
@@ -132,12 +135,12 @@ const bookings = {
     const trainer = accounts.getCurrentTrainer(request);
     const booking = request.params.bookingId;
     const bookingToUpdate = trainerStore.getBookingById(trainer.id, booking);
-    const users = userStore.getAllUsers();
+    //const users = userStore.getAllUsers();
     const viewData = {
       bookingToUpdate: bookingToUpdate,
       userId: request.params.userId,
     };
-    logger.debug('about to render updateBooking', viewData.users);
+    logger.debug('about to render updateBooking');
     response.render('trainerBookingUpdate', viewData);
   },
 
@@ -151,13 +154,40 @@ const bookings = {
     let conflict = false;
     trainerBooking.date = date.toDateString();
     trainerBooking.time = request.body.time;
-    logger.info('new date', date);
-    logger.info('old date', memberBooking);
     memberBooking.date = date.toDateString();
     memberBooking.time = request.body.time;
     trainerStore.store.save();
     userStore.store.save();
     response.redirect('/bookings');
+  },
+
+  memberUpdateBooking(request, response) {
+    const user = accounts.getCurrentUser(request);
+    const booking = request.params.bookingId;
+    const bookingToUpdate = userStore.getBookingByIdHelper(user.id, booking);
+    const viewData = {
+      bookingToUpdate: bookingToUpdate,
+      trainerId: request.params.trainerId,
+    };
+    logger.debug('about to render updateBooking');
+    response.render('memberBookingUpdate', viewData);
+  },
+
+  memberEditBooking(request, response) {
+    const user = accounts.getCurrentUser(request);
+    const bookingId = request.params.bookingId;
+    const trainer = trainerStore.getTrainerById(request.params.trainerId);
+    const date = new Date(request.body.date);
+    const memberBooking = userStore.getBookingByIdHelper(user.id, bookingId);
+    const trainerBooking = trainerStore.getBookingByIdHelper(trainer, bookingId);
+    let conflict = false;
+    memberBooking.date = date.toDateString();
+    memberBooking.time = request.body.time;
+    trainerBooking.date = date.toDateString();
+    trainerBooking.time = request.body.time;
+    userStore.store.save();
+    trainerStore.store.save();
+    response.redirect('/bookings/memberBookings');
   },
 };
 

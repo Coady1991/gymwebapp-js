@@ -39,6 +39,14 @@ const trainerStore = {
       }
     }
   },
+
+  getBookingByIdHelper(trainer, bookingId) {
+    for (let i = 0; i < trainer.bookings.length; i++) {
+      if (trainer.bookings[i].bookingId === bookingId) {
+        return trainer.bookings[i];
+      }
+    }
+  },
 };
 
 module.exports = trainerStore;
