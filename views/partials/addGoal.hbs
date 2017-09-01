@@ -1,0 +1,26 @@
+<h2>Add Goal</h2>
+<form class="ui raised segment form" action="/dashboard/addGoal" method="POST">
+    <div class="four fields">
+        <div class="field">
+            <label>Target Area</label>
+            <input placeholder="Target Area" type="text"  name="target" required>
+        </div>
+        <div class="field">
+            <label>Goal</label>
+            <input placeholder="Measurement" type="number" name="measure" required>
+        </div>
+        <div class="field">
+            <label>Description</label>
+            <textarea name="description" rows="2" cols="50"></textarea>
+        </div>
+        <div class="field">
+            <label>Date</label>
+            <input placeholder="Date" type="date" name="date" required>
+        </div>
+    </div>
+    <script>
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementsByName("date")[0].setAttribute('min', today);
+    </script>
+    <button class="ui blue submit button">Add Goal</button>
+</form>

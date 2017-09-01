@@ -57,6 +57,16 @@
           "mfirstName": "Homer",
           "mlastName": "Simpson"
         }
+      ],
+      "goals": [
+        {
+          "goalId": "537c43ee-2a23-4d9a-b8ed-de47a8eb5e31",
+          "target": "Chest",
+          "measure": "25",
+          "description": " test",
+          "date": "Wed Sep 27 2017",
+          "status": "open"
+        }
       ]
     },
     {
@@ -70,7 +80,8 @@
       "weight": "90",
       "id": "9b722522-3b67-4200-9cc4-d3d2d3f57d1f",
       "assessments": [],
-      "bookings": []
+      "bookings": [],
+      "goals": []
     }
   ]
 }

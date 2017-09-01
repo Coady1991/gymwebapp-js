@@ -25,6 +25,7 @@ const dashboard = {
       idealBodyWeight = analytics.isIdealBodyWeight(loggedInUser.assessments[0].weight, loggedInUser.height);
     }
     const assessments = loggedInUser.assessments;
+    const goals = loggedInUser.goals;
     const viewData = {
       title: 'Gym App Dashboard',
       user: loggedInUser,
@@ -32,6 +33,7 @@ const dashboard = {
       BMICategory: BMICategory,
       idealBodyWeight: idealBodyWeight,
       assessments: assessments,
+      goals: goals,
     };
     logger.info('about to render');
     response.render('dashboard', viewData);
@@ -60,6 +62,21 @@ const dashboard = {
     };
     logger.debug('Creating a new assessment', newAssessment);
     userStore.addAssessment(loggedInUser.id, newAssessment);
+    response.redirect('/dashboard/');
+  },
+
+  addGoal(request, response) {
+    const user = accounts.getCurrentUser(request);
+    const date = new Date(request.body.date);
+    const newGoal = {
+      goalId: uuid(),
+      target: request.body.target,
+      measure: request.body.measure,
+      description: request.body.description,
+      date: date.toDateString(),
+      status: 'open',
+    }
+    userStore.addGoal(user.id, newGoal);
     response.redirect('/dashboard/');
   },
 };

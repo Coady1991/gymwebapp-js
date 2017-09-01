@@ -38,6 +38,7 @@ const accounts = {
     user.id = uuid();
     user.assessments = [];
     user.bookings = [];
+    user.goals = [];
     userstore.addUser(user);
     logger.info(`registering ${user.email}`);
     response.redirect('/');

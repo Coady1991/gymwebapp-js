@@ -86,6 +86,12 @@ const userStore = {
     _.remove(user.bookings, { bookingId: bookingId });
     this.store.save();
   },
+
+  addGoal(userId, goal) {
+    const user = this.getUserById(userId);
+    user.goals.push(goal);
+    this.store.save();
+  },
 };
 
 module.exports = userStore;
