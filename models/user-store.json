@@ -45,7 +45,19 @@
           "comment": ""
         }
       ],
-      "bookings": []
+      "bookings": [
+        {
+          "bookingId": "766aceeb-4d7a-451a-aab1-8247c04f9054",
+          "date": "Sat Sep 02 2017",
+          "time": "12:00",
+          "userId": "3ad52697-6d98-4d80-8273-084de55a86c0",
+          "trainerId": "3ad52697-6d98-4d80-8273-084de55a86c1",
+          "firstName": "Bart",
+          "lastName": "Simpson",
+          "mfirstName": "Homer",
+          "mlastName": "Simpson"
+        }
+      ]
     },
     {
       "firstName": "Niall",

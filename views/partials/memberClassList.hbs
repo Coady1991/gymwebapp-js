@@ -1,17 +1,15 @@
 <h1>Classes</h1>
 <section class="ui raised segment">
     {{#each classList}}
-        <table class="inverted blue ui eight column table">
+        <table class="inverted blue ui six column table">
             <thead>
             <tr>
                 <th>Class Name</th>
                 <th>Duration</th>
                 <th>Capacity</th>
                 <th>Difficulty</th>
-                <th>Start Time</th>
-                <th>Date</th>
-                <th></th>
-                <th></th>
+                <th>Enroll All</th>
+                <th>Unenroll All</th>
             </tr>
             </thead>
             <tbody>
@@ -20,8 +18,6 @@
                 <td> {{duration}} </td>
                 <td> {{capacity}} </td>
                 <td> {{difficulty}} </td>
-                <td> {{time}} </td>
-                <td> {{date}} </td>
                 <td> <a href="/classes/enrollInAllClasses/{{classId}}" class="ui icon button"><i class="add user icon"></i></a></td>
                 <td> <a href="/classes/unenrollInAllClasses/{{classId}}" class="ui icon button"><i class="remove user icon"></i></a></td>
             </tr>
@@ -34,24 +30,24 @@
                 <table class="ui blue seven column table" >
                     <thead>
                     <tr>
-                        <th>Duration</th>
+
                         <th>Capacity</th>
                         <th>Current Capacity</th>
-                        <th>Difficulty</th>
                         <th>Start Time</th>
                         <th>Date</th>
+                        <th>Enrolled</th>
                         <th></th>
                         <th></th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td> {{duration}} </td>
+
                         <td> {{capacity}} </td>
                         <td> {{currentCapacity}} </td>
-                        <td> {{difficulty}} </td>
                         <td> {{time}} </td>
                         <td> {{classDate}} </td>
+                        <td> </td>
                         <td> <a href="/classes/{{../classId}}/enrollInExClass/{{exClassid}}" class="ui icon button"><i class="add user icon"></i></a></td>
                         <td> <a href="/classes/{{../classId}}/unenrollInExClass/{{exClassid}}" class="ui icon button"><i class="remove user icon"></i></a></td>
                     </tr>
