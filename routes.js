@@ -58,4 +58,7 @@ router.get('/bookings/memberBookings', bookings.memberBookingView);
 router.post('/bookings/addTrainerBooking', bookings.addTrainerBooking);
 router.post('/bookings/addMemberBooking', bookings.addMemberBooking);
 
+router.get('/bookings/:userId/trainerUpdateBooking/:bookingId', bookings.trainerUpdateBooking);
+router.post('/bookings/:userId/trainerEditBooking/:bookingId', bookings.trainerEditBooking);
+
 module.exports = router;

@@ -1,5 +1,5 @@
 'use strict';
-
+const logger = require('../utils/logger');
 const _ = require('lodash');
 const JsonStore = require('./json-store');
 
@@ -29,6 +29,15 @@ const trainerStore = {
     const trainer = this.getTrainerById(trainerId);
     trainer.bookings.push(booking);
     this.store.save();
+  },
+
+  getBookingById(trainerId, bookingId) {
+    const trainer = this.getTrainerById(trainerId);
+    for (let i = 0; i < trainer.bookings.length; i++) {
+      if (trainer.bookings[i].bookingId === bookingId) {
+        return trainer.bookings[i];
+      }
+    }
   },
 };
 

@@ -47,12 +47,13 @@
       ],
       "bookings": [
         {
-          "bookingId": "8788d35b-63bd-42f4-a5aa-41cade82f136",
-          "date": "Sun Sep 03 2017",
+          "bookingId": "9e16526a-5686-4b1e-91d0-afae7254ec4f",
+          "userId": "3ad52697-6d98-4d80-8273-084de55a86c0",
+          "date": "Sat Sep 02 2017",
           "time": "12:00",
           "firstName": "Bart",
           "lastName": "Simpson",
-          "mfirstName": "Homer",
+          "mfirstname": "Homer",
           "mlastName": "Simpson"
         }
       ]

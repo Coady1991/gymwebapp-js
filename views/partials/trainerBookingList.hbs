@@ -1,6 +1,5 @@
 <h1>Bookings</h1>
 <section class="ui raised segment">
-    {{#each trainer.bookings}}
         <table class="inverted blue ui five column table">
             <thead>
             <tr>
@@ -12,14 +11,15 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td> {{date}} </td>
-                <td> {{time}} </td>
-                <td> {{mfirstName}} {{mlastName}} </td>
-                <td> <a href="" class="ui icon button"><i class="edit icon"></i></a></td>
-                <td> <a href="" class="ui icon button"><i class="trash icon"></i></a></td>
-            </tr>
+            {{#each trainer.bookings}}
+                <tr>
+                    <td> {{date}} </td>
+                    <td> {{time}} </td>
+                    <td> {{mfirstName}} {{mlastName}} </td>
+                    <td> <a href="/bookings/{{userId}}/trainerUpdateBooking/{{bookingId}}" class="ui icon button"><i class="edit icon"></i></a></td>
+                    <td> <a href="" class="ui icon button"><i class="trash icon"></i></a></td>
+                </tr>
+            {{/each}}
             </tbody>
         </table>
-    {{/each}}
 </section>
