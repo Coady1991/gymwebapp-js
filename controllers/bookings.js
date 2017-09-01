@@ -135,7 +135,6 @@ const bookings = {
     const trainer = accounts.getCurrentTrainer(request);
     const booking = request.params.bookingId;
     const bookingToUpdate = trainerStore.getBookingById(trainer.id, booking);
-    //const users = userStore.getAllUsers();
     const viewData = {
       bookingToUpdate: bookingToUpdate,
       userId: request.params.userId,
@@ -197,6 +196,15 @@ const bookings = {
     trainerStore.deleteBooking(trainer.id, bookingId);
     userStore.deleteBooking(userId, bookingId);
     response.redirect('/bookings');
+  },
+
+  memberDeleteBooking(request, response) {
+    const user = accounts.getCurrentUser(request);
+    const bookingId = request.params.bookingId;
+    const trainerId = request.params.trainerId;
+    userStore.deleteBooking(user.id, bookingId);
+    trainerStore.deleteBooking(trainerId, bookingId);
+    response.redirect('/bookings/memberBookings');
   },
 };
 
