@@ -66,6 +66,21 @@ const trainerDashboard = {
     userstore.store.save();
     response.redirect('/trainerDashboard/trainerView/' + userId);
   },
+
+  addGoal(request, response) {
+    const userId = request.params.id;
+    const date = new Date(request.body.date);
+    const newGoal = {
+      goalId: uuid(),
+      target: request.body.target,
+      measure: request.body.measure,
+      description: request.body.description,
+      date: date.toDateString(),
+      status: 'Open',
+    }
+    userstore.addGoal(userId, newGoal);
+    response.redirect('/trainerDashboard/trainerView/' + userId);
+  },
 };
 
 module.exports = trainerDashboard;
