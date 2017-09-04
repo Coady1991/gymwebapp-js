@@ -74,7 +74,7 @@ const dashboard = {
       measure: request.body.measure,
       description: request.body.description,
       date: date.toDateString(),
-      status: 'open',
+      status: 'Open',
     }
     userStore.addGoal(user.id, newGoal);
     response.redirect('/dashboard/');

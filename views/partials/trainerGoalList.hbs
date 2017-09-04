@@ -1,0 +1,29 @@
+<h1>Goals</h1>
+<section class="ui raised segment">
+    <table class="inverted blue ui six column table">
+        <thead>
+        <tr>
+            <th>Target</th>
+            <th>Goal</th>
+            <th>Description</th>
+            <th>Goal Date</th>
+            <th>Status</th>
+            <th>Edit Goal</th>
+            <th>Delete Goal</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each user.goals}}
+            <tr>
+                <td> {{target}} </td>
+                <td> {{measure}} </td>
+                <td> {{description}} </td>
+                <td> {{date}} </td>
+                <td> {{status}} </td>
+                <td> </td>
+                <td> </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</section>
