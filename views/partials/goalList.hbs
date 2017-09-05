@@ -8,7 +8,6 @@
             <th>Description</th>
             <th>Goal Date</th>
             <th>Status</th>
-            <th>Edit Goal</th>
             <th>Delete Goal</th>
         </tr>
         </thead>
@@ -20,8 +19,7 @@
                 <td> {{description}} </td>
                 <td> {{date}} </td>
                 <td> {{status}} </td>
-                <td> </td>
-                <td> </td>
+                <td> <a href="/dashboard/deleteGoal/{{goalId}}" class="ui icon button"><i class="trash icon"></i></a></td>
             </tr>
         {{/each}}
         </tbody>

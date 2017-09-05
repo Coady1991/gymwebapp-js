@@ -41,6 +41,7 @@ router.post('/trainerDashboard/:id/addGoal', trainerDashboard.addGoal);
 router.post('/dashboard/addAssessment', dashboard.addAssessment);
 router.get('/dashboard/deleteAssessment/:assessmentid', dashboard.deleteAssessment);
 router.post('/dashboard/addGoal', dashboard.addGoal);
+router.get('/dashboard/deleteGoal/:goalId', dashboard.deleteGoal);
 
 router.get('/classes', classes.index);
 router.get('/classes/memberClassView', classes.memberClassView);

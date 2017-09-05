@@ -79,6 +79,13 @@ const dashboard = {
     userStore.addGoal(user.id, newGoal);
     response.redirect('/dashboard/');
   },
+
+  deleteGoal(request, response) {
+    const user = accounts.getCurrentUser(request);
+    const goalId = request.params.goalId;
+    userStore.deleteGoal(user.id, goalId);
+    response.redirect('/dashboard/');
+  }
 };
 
 module.exports = dashboard;

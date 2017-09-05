@@ -92,6 +92,12 @@ const userStore = {
     user.goals.push(goal);
     this.store.save();
   },
+
+  deleteGoal(userId, goalId) {
+    const user = this.getUserById(userId);
+    _.remove(user.goals, { goalId: goalId });
+    this.store.save();
+  },
 };
 
 module.exports = userStore;
