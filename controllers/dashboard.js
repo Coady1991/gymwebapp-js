@@ -26,6 +26,12 @@ const dashboard = {
     }
     const assessments = loggedInUser.assessments;
     const goals = loggedInUser.goals;
+    let goalPrompt = true;
+    for (let i = 0; i < goals.length; i++) {
+      if ((goals[i].status === 'Open') || (goals[i].status === 'Due for processing')) {
+        goalPrompt = false;
+      }
+    }
     const viewData = {
       title: 'Gym App Dashboard',
       user: loggedInUser,
@@ -34,6 +40,7 @@ const dashboard = {
       idealBodyWeight: idealBodyWeight,
       assessments: assessments,
       goals: goals,
+      goalPrompt: goalPrompt,
     };
     logger.info('about to render');
     response.render('dashboard', viewData);

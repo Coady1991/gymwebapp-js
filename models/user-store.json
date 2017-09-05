@@ -58,16 +58,7 @@
           "mlastName": "Simpson"
         }
       ],
-      "goals": [
-        {
-          "goalId": "8d680e40-b37f-46f6-b61c-53672aa9b4dd",
-          "target": "Weight",
-          "measure": "74",
-          "description": "test2",
-          "date": "Thu Sep 28 2017",
-          "status": "Open"
-        }
-      ]
+      "goals": []
     },
     {
       "firstName": "Niall",

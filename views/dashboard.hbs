@@ -1,5 +1,10 @@
 {{> menu id="dashboard"}}
 
+{{#if goalPrompt}}
+    <div class="ui error message">
+        <p><i class="large yellow warning sign icon"></i>{{{user.firstName}}} you have not set any goals, please do so now!</p>
+    </div>
+{{/if}}
 {{> memberStatusBar}}
 {{> assessmentList}}
 {{> addAssessment}}
