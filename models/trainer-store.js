@@ -1,5 +1,5 @@
 'use strict';
-const logger = require('../utils/logger');
+
 const _ = require('lodash');
 const JsonStore = require('./json-store');
 
