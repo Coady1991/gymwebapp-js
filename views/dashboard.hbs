@@ -1,8 +1,14 @@
 {{> menu id="dashboard"}}
 
 {{#if goalPrompt}}
-    <div class="ui error message">
+    <div class="ui warning message">
         <p><i class="large yellow warning sign icon"></i>{{{user.firstName}}} you have not set any goals, please do so now!</p>
+    </div>
+{{/if}}
+{{#if bookAssess}}
+    <div class="ui warning message">
+        <p><i class="large yellow warning sign icon"></i>{{{user.firstName}}} you have goals currently awaiting processing,
+            please proceed to booking an assessment with a Trainer of your choice</p>
     </div>
 {{/if}}
 {{> memberStatusBar}}

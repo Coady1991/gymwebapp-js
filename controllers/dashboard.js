@@ -27,9 +27,66 @@ const dashboard = {
     const assessments = loggedInUser.assessments;
     const goals = loggedInUser.goals;
     let goalPrompt = true;
+    let bookAssess = false;
     for (let i = 0; i < goals.length; i++) {
-      if ((goals[i].status === 'Open') || (goals[i].status === 'Due for processing')) {
+      if ((goals[i].status === 'Open') || (goals[i].status === 'Awaiting processing')) {
         goalPrompt = false;
+        const timeDiff = (new Date(goals[i].date) - new Date);
+        const diff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        if (diff <= 0) {
+          const target = goals[i].target;
+          const measure = goals[i].measure;
+          if (assessments.length > 0) {
+            const recentAssess = assessments[0];
+            const dateDiff = (new Date(recentAssess.date) - new Date);
+            const diff2 = Math.ceil(dateDiff / (1000 * 3600 * 24));
+            if ((diff2 <= 0) && (diff2 >= (-3))) {
+              if (target === 'Weight') {
+                if (measure <= recentAssess.weight) {
+                  goals[i].status = 'Achieved';
+                } else {
+                  goals[i].status = 'Missed';
+                }
+              } else if (target === 'Chest') {
+                if (measure <= recentAssess.chest) {
+                  goals[i].status = 'Achieved';
+                } else {
+                  goals[i].status = 'Missed';
+                }
+              } else if (target === 'Thigh') {
+                if (measure <= recentAssess.thigh) {
+                  goals[i].status = 'Achieved';
+                } else {
+                  goals[i].status = 'Missed';
+                }
+              } else if (target === 'Upper Arm') {
+                if (measure <= recentAssess.upperArm) {
+                  goals[i].status = 'Achieved';
+                } else {
+                  goals[i].status = 'Missed';
+                }
+              } else if (target === 'Waist') {
+                if (measure <= recentAssess.waist) {
+                  goals[i].status = 'Achieved';
+                } else {
+                  goals[i].status = 'Missed';
+                }
+              } else if (target === 'Hips') {
+                if (measure <= recentAssess.hips) {
+                  goals[i].status = 'Achieved';
+                } else {
+                  goals[i].status = 'Missed';
+                }
+              }
+            } else {
+              goals[i].status = 'Awaiting processing';
+              bookAssess = true;
+            }
+          } else {
+            goals[i].status = 'Awaiting processing';
+            bookAssess = true;
+          }
+        }
       }
     }
     const viewData = {
@@ -41,6 +98,7 @@ const dashboard = {
       assessments: assessments,
       goals: goals,
       goalPrompt: goalPrompt,
+      bookAssess: bookAssess,
     };
     logger.info('about to render');
     response.render('dashboard', viewData);

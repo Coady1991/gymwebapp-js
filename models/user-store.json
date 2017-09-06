@@ -12,6 +12,17 @@
       "gender": "Male",
       "assessments": [
         {
+          "assessmentid": "d2fbdb93-5c30-406d-b675-69a0ed02822e",
+          "date": "Wed Sep 06 2017",
+          "weight": "77",
+          "chest": "26",
+          "thigh": "27",
+          "upperArm": "27",
+          "waist": "27",
+          "hips": "27",
+          "comment": ""
+        },
+        {
           "assessmentid": "6e2335bb-82e5-440b-8350-b5fd9153b097",
           "date": "Tue Aug 15 2017",
           "weight": "77",
@@ -58,7 +69,24 @@
           "mlastName": "Simpson"
         }
       ],
-      "goals": []
+      "goals": [
+        {
+          "goalId": "f163e5e4-c5a1-4c15-9203-2ab39b40a7a8",
+          "target": "Chest",
+          "measure": "26",
+          "description": "test",
+          "date": "Wed Sep 06 2017",
+          "status": "Awaiting processing"
+        },
+        {
+          "goalId": "4e72f758-7575-4de4-8f5b-049b099581f5",
+          "target": "Thigh",
+          "measure": "28",
+          "description": "testing",
+          "date": "Wed Sep 06 2017",
+          "status": "Open"
+        }
+      ]
     },
     {
       "firstName": "Niall",
