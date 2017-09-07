@@ -1,0 +1,111 @@
+<form class="ui raised segment form" action="" method="POST">
+    <div class="field">
+        <label>Member</label>
+        <select class="ui dropdown" name="trainer" required>
+            <option selected disabled></option>
+            {{#each users}}
+                <option value={{id}}> {{firstName}} {{lastName}} </option>
+            {{/each}}
+        </select>
+    </div>
+
+    <div class ="five fields">
+        <div class="field">
+            <label>Session 1</label>
+            <select class="ui dropdown" name="session1" required>
+                <option selected disabled> </option>
+                <option class="dropdown-header" value="Class" disabled> Class </option>
+                {{#each classes}}
+                    <option value="{{classId}}"> {{className}} </option>
+                {{/each}}
+                <option class="dropdown-header" value="Class" disabled> Cardio </option>
+                <option>Rowing Machine</option>
+                <option>Treadmill</option>
+                <option>Bike</option>
+                <option>Cross Trainer</option>
+                <option class="dropdown-header" value="Class"  disabled> Weights </option>
+                <option>Upper Body</option>
+                <option>Lower Body</option>
+                <option>Full Body</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>Session 2</label>
+            <select class="ui dropdown" name="session2" required>
+                <option selected disabled> </option>
+                <option class="dropdown-header" value="Class" disabled> Class </option>
+                {{#each classes}}
+                    <option value="{{classId}}"> {{className}} </option>
+                {{/each}}
+                <option class="dropdown-header" value="Class" disabled> Cardio </option>
+                <option>Rowing Machine</option>
+                <option>Treadmill</option>
+                <option>Bike</option>
+                <option>Cross Trainer</option>
+                <option class="dropdown-header" value="Class"  disabled> Weights </option>
+                <option>Upper Body</option>
+                <option>Lower Body</option>
+                <option>Full Body</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>Session 3</label>
+            <select class="ui dropdown" name="session3" required>
+                <option selected disabled> </option>
+                <option class="dropdown-header" value="Class" disabled> Class </option>
+                {{#each classes}}
+                    <option value="{{classId}}"> {{className}} </option>
+                {{/each}}
+                <option class="dropdown-header" value="Class" disabled> Cardio </option>
+                <option>Rowing Machine</option>
+                <option>Treadmill</option>
+                <option>Bike</option>
+                <option>Cross Trainer</option>
+                <option class="dropdown-header" value="Class"  disabled> Weights </option>
+                <option>Upper Body</option>
+                <option>Lower Body</option>
+                <option>Full Body</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>Session 4</label>
+            <select class="ui dropdown" name="session4" required>
+                <option selected disabled> </option>
+                <option class="dropdown-header" value="Class" disabled> Class </option>
+                {{#each classes}}
+                    <option value="{{classId}}"> {{className}} </option>
+                {{/each}}
+                <option class="dropdown-header" value="Class" disabled> Cardio </option>
+                <option>Rowing Machine</option>
+                <option>Treadmill</option>
+                <option>Bike</option>
+                <option>Cross Trainer</option>
+                <option class="dropdown-header" value="Class"  disabled> Weights </option>
+                <option>Upper Body</option>
+                <option>Lower Body</option>
+                <option>Full Body</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>Session 5</label>
+            <select class="ui dropdown" name="session5" required>
+                <option selected disabled> </option>
+                <option class="dropdown-header" value="Class" disabled> Class </option>
+                {{#each classes}}
+                    <option value="{{classId}}"> {{className}} </option>
+                {{/each}}
+                <option class="dropdown-header" value="Class" disabled> Cardio </option>
+                <option>Rowing Machine</option>
+                <option>Treadmill</option>
+                <option>Bike</option>
+                <option>Cross Trainer</option>
+                <option class="dropdown-header" value="Class"  disabled> Weights </option>
+                <option>Upper Body</option>
+                <option>Lower Body</option>
+                <option>Full Body</option>
+            </select>
+        </div>
+    </div>
+
+    <button class="ui blue submit button">Add Programme</button>
+</form>

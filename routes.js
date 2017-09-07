@@ -10,6 +10,7 @@ const accounts = require('./controllers/accounts.js');
 const updateProfile = require('./controllers/updateProfile.js');
 const classes = require('./controllers/classes.js');
 const bookings = require('./controllers/bookings.js');
+const fitnessProgrammes = require('./controllers/fitnessProgrammes.js');
 
 router.get('/', accounts.index);
 router.get('/login', accounts.login);
@@ -70,5 +71,7 @@ router.post('/bookings/:trainerId/memberEditBooking/:bookingId', bookings.member
 
 router.get('/bookings/:userId/trainerDeleteBooking/:bookingId', bookings.trainerDeleteBooking);
 router.get('/bookings/:trainerId/memberDeleteBooking/:bookingId', bookings.memberDeleteBooking);
+
+router.get('/fitnessProgrammes', fitnessProgrammes.index);
 
 module.exports = router;

@@ -13,16 +13,18 @@ const fitnessProgrammes = {
   index(request, response) {
     logger.info('programme view rendering');
     const trainer = accounts.getCurrentTrainer(request);
-    const members = userStore.getAllUsers();
+    const users = userStore.getAllUsers();
     const classes = classStore.getAllClasses();
     const programmes = programmeStore.getAllProgrammes();
     const viewData = {
       trainer: trainer,
-      members: members,
+      users: users,
       classes: classes,
       programmes: programmes,
     };
     response.render('fitnessProgrammes', viewData);
   },
-}
+};
+
+module.exports = fitnessProgrammes;
 
